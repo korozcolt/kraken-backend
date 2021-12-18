@@ -1,14 +1,14 @@
 import { ApiProperty } from '@nestjs/swagger';
-import { IsDate, IsEmail, IsNotEmpty, IsOptional } from 'class-validator';
+import { IsDateString, IsEmail, IsNotEmpty, IsOptional } from 'class-validator';
 
 export class CreateCoordinatorDto {
   @IsNotEmpty()
   @ApiProperty()
-  dni: number;
+  dni: string;
 
   @IsNotEmpty()
   @ApiProperty()
-  name: string;
+  firstname: string;
 
   @IsNotEmpty()
   @ApiProperty()
@@ -16,11 +16,11 @@ export class CreateCoordinatorDto {
 
   @IsNotEmpty()
   @ApiProperty()
-  phone: number;
+  phone: string;
 
   @IsOptional()
   @ApiProperty()
-  phone_two?: number;
+  phone_two?: string;
 
   @IsNotEmpty()
   @ApiProperty()
@@ -29,6 +29,6 @@ export class CreateCoordinatorDto {
 
   @IsNotEmpty()
   @ApiProperty()
-  @IsDate()
+  @IsDateString()
   birth_date: Date;
 }

@@ -34,10 +34,11 @@ export class CoordinatorRepository extends Repository<Coordinator> {
     createCoordinatorDto: CreateCoordinatorDto,
     user: User,
   ): Promise<Coordinator> {
-    const { name, lastname, email, phone, phone_two, birth_date } =
+    const { dni, firstname, lastname, email, phone, phone_two, birth_date } =
       createCoordinatorDto;
     const coordinator = this.create({
-      name,
+      dni,
+      firstname,
       lastname,
       email,
       phone,

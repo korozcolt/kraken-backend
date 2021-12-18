@@ -66,10 +66,10 @@ export class CoordinatorService {
     updateCoordinatorDto: UpdateCoordinatorDto,
     user: User,
   ): Promise<Coordinator> {
-    const { name, lastname, email, phone, phone_two, status, birth_date } =
+    const { firstname, lastname, email, phone, phone_two, status, birth_date } =
       updateCoordinatorDto;
     const coordinator = await this.getCoordinatorById(id, user);
-    coordinator.name = name;
+    coordinator.firstname = firstname;
     coordinator.lastname = lastname;
     coordinator.email = email;
     coordinator.phone = phone;

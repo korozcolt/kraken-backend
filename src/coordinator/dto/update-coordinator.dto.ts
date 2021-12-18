@@ -5,7 +5,7 @@ import { CoordinatorStatus } from '../coordinator-status.enum';
 export class UpdateCoordinatorDto {
   @IsOptional()
   @ApiProperty()
-  name?: string;
+  firstname?: string;
 
   @IsOptional()
   @ApiProperty()
@@ -13,11 +13,11 @@ export class UpdateCoordinatorDto {
 
   @IsOptional()
   @ApiProperty()
-  phone?: number;
+  phone?: string;
 
   @IsOptional()
   @ApiProperty()
-  phone_two?: number;
+  phone_two?: string;
 
   @IsOptional()
   @ApiProperty()

@@ -6,9 +6,9 @@ import {
   PrimaryGeneratedColumn,
   CreateDateColumn,
   UpdateDateColumn,
+  OneToMany,
   OneToOne,
   JoinColumn,
-  OneToMany,
 } from 'typeorm';
 import { CoordinatorStatus } from './coordinator-status.enum';
 
@@ -17,31 +17,35 @@ export class Coordinator {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
-  @Column({ unique: true })
-  dni: number;
+  @Column({ type: 'bigint' })
+  public dni: string;
 
   @Column()
-  name: string;
+  public firstname: string;
 
   @Column()
-  lastname: string;
+  public lastname: string;
 
   @Column()
-  phone: number;
+  public phone: string;
 
   @Column({ nullable: true })
-  phone_two: number;
+  public phone_two: string;
 
   @Column()
-  email: string;
+  public email: string;
 
   @CreateDateColumn({
     type: 'timestamp',
   })
-  birth_date: Date;
+  public birth_date: Date;
 
   @Column()
   status: CoordinatorStatus;
+
+  @OneToOne(() => User, { eager: true })
+  @JoinColumn()
+  public user: User;
 
   @CreateDateColumn({
     type: 'timestamp',
@@ -62,8 +66,4 @@ export class Coordinator {
     onUpdate: 'CASCADE',
   })
   liders: Lider[];
-
-  @OneToOne(() => User)
-  @JoinColumn()
-  user: User;
 }
